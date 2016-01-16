@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+  <comment>File locations for some of the NLPTools classes and other setup data</comment>
+  <!-- Pre-trained models for Portuguese for the OpenNLP 1.5 series -->
+  <entry key="tokenizer">resources/models/pt-token.bin</entry>
+  <!-- Tokenizer word expansion (determinant and pronoun contractions, and hyphenated verbs with clitics) -->
+  <entry key="contractions">resources/replacements/contractions.xml</entry>
+  <entry key="clitics">resources/replacements/clitics.xml</entry>
+  <!-- Abbreviations (for avoiding improper sentence splitting) -->
+  <entry key="abbreviations">resources/replacements/abbreviations.xml</entry>
+  <!-- Token groups -->
+  <entry key="tokenGroups">resources/replacements/tokengroups.xml</entry>
+</properties>
