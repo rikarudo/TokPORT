@@ -32,7 +32,7 @@ public class TokenizerExample {
       e.printStackTrace();
     }
 
-    String sentence = "Era uma vez um gato maltês, que tocava piano e falava"
+    String sentence = "Era uma vez um gato maltês, tocava piano e falava"
         + " francês.";
     String[] tokens = tokenizer.tokenize(sentence, true);
 

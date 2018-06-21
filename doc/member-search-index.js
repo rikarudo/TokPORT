@@ -1,0 +1,1 @@
+memberSearchIndex = [{"p":"examples","c":"TokenizerExample","l":"main(String[])","url":"main-java.lang.String:A-"},{"p":"examples","c":"TokenizerExample","l":"TokenizerExample()"}]

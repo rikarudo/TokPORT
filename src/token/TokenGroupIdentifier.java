@@ -20,10 +20,11 @@ import org.xml.sax.SAXException;
  * This class ...
  *
  * @author   Ricardo Rodrigues
- * @version  0.9.4
+ * @version  0.9.9
  */
 public class TokenGroupIdentifier {
-  private static final String DEFAULT_PROP = "resources/properties/tokport.xml";
+  private static final String DEFAULT_PROP =
+      "resources/config/nlpport.properties";
 
   private String[] groups = null;
 
@@ -39,7 +40,7 @@ public class TokenGroupIdentifier {
       throws InvalidPropertiesFormatException, IOException,
       ParserConfigurationException, SAXException {
     Properties properties = new Properties();
-    properties.loadFromXML(
+    properties.load(
         this.getClass().getClassLoader().getResourceAsStream(DEFAULT_PROP));
     Replacement[] tokenGroups = Replacement.readReplacements(
         this.getClass().getClassLoader().getResourceAsStream(
@@ -55,14 +56,14 @@ public class TokenGroupIdentifier {
   /**
    * Creates a new <code>TokenGroupIdentifier</code> object ...
    * 
-   * @param  tokenGroupInput ...
+   * @param  tokenGroupData ...
    * @throws ParserConfigurationException ...
    * @throws SAXException ...
    * @throws IOException ...
    */
-  public TokenGroupIdentifier(InputStream tokenGroupInput)
+  public TokenGroupIdentifier(InputStream tokenGroupData)
       throws ParserConfigurationException, SAXException, IOException {
-    Replacement[] tokenGroups = Replacement.readReplacements(tokenGroupInput);
+    Replacement[] tokenGroups = Replacement.readReplacements(tokenGroupData);
     HashSet<String> tokenGroupSet = new HashSet<String>();
     for (Replacement tokenGroup:tokenGroups) {
       tokenGroupSet.add(tokenGroup.getTarget());

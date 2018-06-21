@@ -22,10 +22,11 @@ import replacement.Replacement;
  * This class ...
  *
  * @author   Ricardo Rodrigues
- * @version  0.9.4
+ * @version  0.9.9
  */
 public class Tokenizer {
-  private static final String DEFAULT_PROP = "resources/properties/tokport.xml";
+  private static final String DEFAULT_PROP =
+      "resources/config/tokport.properties";
 
   private LinkedHashSet<String> abbreviationTargets = null;
   private Pattern[] contractionTargets = null;
@@ -47,7 +48,7 @@ public class Tokenizer {
       throws InvalidPropertiesFormatException, IOException,
       ParserConfigurationException, SAXException {
     Properties properties = new Properties();
-    properties.loadFromXML(
+    properties.load(
         this.getClass().getClassLoader().getResourceAsStream(DEFAULT_PROP));
     this.tokenizer = new TokenizerME(new TokenizerModel(
         this.getClass().getClassLoader().getResourceAsStream(
@@ -84,7 +85,7 @@ public class Tokenizer {
   /**
    * Creates a new <code>Tokenizer</code> object ...
    * 
-   * @param  tokenizerModelInput ...
+   * @param  tokenizerModel ...
    * @param  abbreviations ...
    * @param  contractions ...
    * @param  clitics ...
@@ -93,11 +94,11 @@ public class Tokenizer {
    * @throws ParserConfigurationException ...
    * @throws SAXException ...
    */
-  public Tokenizer(InputStream tokenizerModelInput, Replacement[] abbreviations,
+  public Tokenizer(InputStream tokenizerModel, Replacement[] abbreviations,
       Replacement[] contractions, Replacement[] clitics)
           throws InvalidFormatException, IOException,
           ParserConfigurationException, SAXException {
-    this.tokenizer = new TokenizerME(new TokenizerModel(tokenizerModelInput));
+    this.tokenizer = new TokenizerME(new TokenizerModel(tokenizerModel));
     this.abbreviations = abbreviations;
     this.contractions = contractions;
     this.clitics = clitics;

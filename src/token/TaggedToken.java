@@ -4,7 +4,7 @@ package token;
  * This class ...
  *
  * @author   Ricardo Rodrigues
- * @version  0.9.4
+ * @version  0.9.7
  */
 public class TaggedToken {
   private String tag = null;

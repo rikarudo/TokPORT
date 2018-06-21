@@ -1,0 +1,1 @@
+typeSearchIndex = [{"p":"examples","l":"TokenizerExample"}]
